@@ -18,6 +18,8 @@
 		FF2F24991D21C15F00F25826 /* TwitterClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F24981D21C15F00F25826 /* TwitterClientTests.swift */; };
 		FF2F24A41D21C15F00F25826 /* TwitterClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F24A31D21C15F00F25826 /* TwitterClientUITests.swift */; };
 		FF2F24B21D21C31800F25826 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F24B11D21C31800F25826 /* LoginViewController.swift */; };
+		FF2F24B61D21E77B00F25826 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F24B51D21E77A00F25826 /* User.swift */; };
+		FF2F24B81D21E7C400F25826 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F24B71D21E7C400F25826 /* Tweet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		FF2F24A31D21C15F00F25826 /* TwitterClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterClientUITests.swift; sourceTree = "<group>"; };
 		FF2F24A51D21C15F00F25826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF2F24B11D21C31800F25826 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FF2F24B51D21E77A00F25826 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FF2F24B71D21E7C400F25826 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,13 +143,13 @@
 		FF2F24821D21C15F00F25826 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				FF2F24B41D21E72400F25826 /* ViewControllers */,
+				FF2F24B31D21E71C00F25826 /* Models */,
 				FF2F24831D21C15F00F25826 /* AppDelegate.swift */,
-				FF2F24851D21C15F00F25826 /* ViewController.swift */,
 				FF2F24871D21C15F00F25826 /* Main.storyboard */,
 				FF2F248A1D21C15F00F25826 /* Assets.xcassets */,
 				FF2F248C1D21C15F00F25826 /* LaunchScreen.storyboard */,
 				FF2F248F1D21C15F00F25826 /* Info.plist */,
-				FF2F24B11D21C31800F25826 /* LoginViewController.swift */,
 			);
 			path = TwitterClient;
 			sourceTree = "<group>";
@@ -166,6 +170,24 @@
 				FF2F24A51D21C15F00F25826 /* Info.plist */,
 			);
 			path = TwitterClientUITests;
+			sourceTree = "<group>";
+		};
+		FF2F24B31D21E71C00F25826 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF2F24B51D21E77A00F25826 /* User.swift */,
+				FF2F24B71D21E7C400F25826 /* Tweet.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FF2F24B41D21E72400F25826 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF2F24851D21C15F00F25826 /* ViewController.swift */,
+				FF2F24B11D21C31800F25826 /* LoginViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +452,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2F24B61D21E77B00F25826 /* User.swift in Sources */,
+				FF2F24B81D21E7C400F25826 /* Tweet.swift in Sources */,
 				FF2F24B21D21C31800F25826 /* LoginViewController.swift in Sources */,
 				FF2F24861D21C15F00F25826 /* ViewController.swift in Sources */,
 				FF2F24841D21C15F00F25826 /* AppDelegate.swift in Sources */,
