@@ -8,29 +8,56 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    
+    @IBOutlet weak var tableView: UITableView!
     //insert table view outlet
-    var tweets: [Tweet]!
+    var tweets: [Tweet]! = []
 
     override func viewDidLoad() {
+        tableView.dataSource = self
+        tableView.delegate = self
         super.viewDidLoad()
         
+        
+        let refreshControl = UIRefreshControl()
+        // Do any additional setup after loading the view.
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+        refresh()
+        
+        // Do any additional setup after loading the view.
+        //self.tableView.reloadData()
+    }
+    
+    func refresh(){
         TwitterClient1.sharedInstance.homeTimeline({(tweets: [Tweet]) -> () in
             self.tweets = tweets
             //number of rows at index path, return self.tweets.count
-//            for tweet in tweets{
-//                print(tweet.text)
-//                }
+            //            for tweet in tweets{
+            //                print(tweet.text)
+            //                }
             
-        //tableView.reloadData()
+            
+            self.tableView.reloadData()
             
             }, failure: {(error: NSError) -> () in
                 print(error.localizedDescription)
                 
         })
-        // Do any additional setup after loading the view.
+
     }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        refresh()
+        // Reload the tableView now that there is new data
+        self.tableView.reloadData()
+        
+        // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,16 +68,45 @@ class TweetsViewController: UIViewController {
         TwitterClient1.sharedInstance.logout()
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
+        let row = indexPath.row
+        let tw = tweets[row]
 
-    /*
+        cell.tweetLabel.text = tw.text
+        cell.favoriteCount.text = "\(tw.favoritesCount)"
+        cell.retweetCount.text = "\(tw.retweetCount)"
+        cell.timestampLabel.text = "\(tw.timestamp!)"
+        cell.usernameLabel.text = tw.theUser?.name
+        
+        cell.profilePic.setImageWithURL((tw.theUser?.profileUrl)!)
+        
+        
+        //print("\(tw.text)")
+        return cell
+
+            }
+
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let cell = sender as? UITableViewCell {
+            
+            let indexPath = tableView.indexPathForCell(cell)
+            let posts = tweets[indexPath!.row]
+            
+            let detailViewController = segue.destinationViewController as! DetailedViewController
+            detailViewController.tw = posts
+        }
     }
-    */
+    
 
 }
