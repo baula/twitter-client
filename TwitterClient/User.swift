@@ -16,7 +16,8 @@ class User: NSObject {
     var followerCount: Int?
     var followingCount: Int?
     var tweetCount: Int?
-    var bannerUrl: NSURL?
+    var userID: Int?
+    //var bannerUrl: NSURL?
     
     var dictionary: NSDictionary?
     
@@ -38,8 +39,8 @@ class User: NSObject {
             profileUrl = NSURL(string: profileUrlString)
         }
         
-        //let bannerUrlString = dictionary["]
         tagline = dictionary["description"] as? String
+        userID = dictionary["id"] as? Int
     }
     
     static let userDidLogoutNotification = "UserDidLogout"    

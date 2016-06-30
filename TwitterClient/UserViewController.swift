@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 class UserViewController: UIViewController {
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var taglineLabel: UILabel!
+    @IBOutlet weak var tweetCountLabel: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followersCountLabel: UILabel!
+   // @IBOutlet weak var tableView: UITableView!
     
     
-    //var tw: Tweet
+    var tw: Tweet!
     
     override func viewDidLoad() {
+        //tableView.dataSource = self
+        //tableView.delegate = self
         super.viewDidLoad()
-
+        usernameLabel.text = tw.theUser?.name
+        taglineLabel.text = tw.theUser?.tagline
+        profilePic.setImageWithURL((tw.theUser?.profileUrl)!)
+        tweetCountLabel.text = "\((tw.theUser?.tweetCount)!)"
+        followingCountLabel.text = "\((tw.theUser?.followingCount)!)"
+        followersCountLabel.text = "\((tw.theUser?.followerCount)!)"
         // Do any additional setup after loading the view.
     }
 

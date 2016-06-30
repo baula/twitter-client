@@ -77,6 +77,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let row = indexPath.row
         let tw = tweets[row]
 
+        cell.tw = tw
         cell.tweetLabel.text = tw.text
         cell.favoriteCount.text = "\(tw.favoritesCount)"
         cell.retweetCount.text = "\(tw.retweetCount)"
@@ -104,17 +105,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let indexPath = tableView.indexPathForCell(cell)
             let posts = tweets[indexPath!.row]
             
+            
             if segue.identifier == "detailedSegue"{
                 let detailViewController = segue.destinationViewController as! DetailedViewController
                 detailViewController.tw = posts
             }
-            
-            if segue.identifier == "userSegue"{
-                let userViewController = segue.destinationViewController as! UserViewController
-                //userViewController.tw = posts
-            }
         }
-    }
+        
+        
+        if segue.identifier == "userSegue"{
+            let button = sender as! UIButton
+            let cell = button.superview!.superview as! TweetCell
+            let userViewController = segue.destinationViewController as! UserViewController
+            userViewController.tw = cell.tw
+        }
+
+}
     
 
 }
