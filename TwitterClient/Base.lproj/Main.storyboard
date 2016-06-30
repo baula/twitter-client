@@ -37,6 +37,49 @@
             </objects>
             <point key="canvasLocation" x="180" y="305"/>
         </scene>
+        <!--Post View Controller-->
+        <scene sceneID="Qth-R4-n8I">
+            <objects>
+                <viewController id="1G6-lx-InW" customClass="PostViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0fQ-0u-pKZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="atl-9y-kK9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SsJ-Ji-HP9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Compose your tweet here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNZ-7d-Ssy">
+                                <rect key="frame" x="29" y="149" width="271" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPK-fJ-nbE">
+                                <rect key="frame" x="145" y="227" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="onPost:" destination="1G6-lx-InW" eventType="touchUpInside" id="ydS-kb-Jd1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uS5-Lb-DGV">
+                                <rect key="frame" x="240" y="28" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="1G6-lx-InW" eventType="touchUpInside" id="nFP-KP-GYT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="captionLabel" destination="NNZ-7d-Ssy" id="Mdm-oq-fvj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t1u-oT-6Ms" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="-411"/>
+        </scene>
         <!--Tweets View Controller-->
         <scene sceneID="scb-gj-5sz">
             <objects>
@@ -125,6 +168,11 @@
                                 <action selector="onLogout:" destination="hNL-88-o78" id="Oig-dn-hUz"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="compose" id="s3d-Gj-LVT">
+                            <connections>
+                                <segue destination="1G6-lx-InW" kind="presentation" id="wdV-PO-qVt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -133,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZO-DS-mbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="284"/>
+            <point key="canvasLocation" x="1052" y="300"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="RF1-gQ-558">
@@ -222,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sl-Z1-yV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="289"/>
+            <point key="canvasLocation" x="1504" y="300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LPC-Wo-dcK">
@@ -241,11 +289,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBA-Ye-Xs8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="284"/>
+            <point key="canvasLocation" x="602" y="300"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow" width="16" height="16"/>
+        <image name="compose" width="24" height="24"/>
         <image name="favorite" width="16" height="16"/>
         <image name="retweet" width="16" height="16"/>
     </resources>

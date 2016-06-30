@@ -30,6 +30,7 @@ class DetailedViewController: UIViewController {
         
         imageLabel.setImageWithURL((tw.theUser?.profileUrl)!)
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +40,16 @@ class DetailedViewController: UIViewController {
     
     
     @IBAction func onFavorite(sender: AnyObject) {
-        TwitterClient1.sharedInstance.POST("1.1/favorites/create.json?id=\(tw.idstr)", parameters: nil, success: nil, failure: nil)
-        print("\(tw.idstr)")
-        //try unwrapping with exclamation pt
+        TwitterClient1.sharedInstance.POST("1.1/favorites/create.json?id=\(tw.idstr!)", parameters: nil, success: nil, failure: nil)
+        print("\(tw.idstr!)")
+        tw.favoritesCount += 1
+        self.favoritesCounts.text = "\(tw.favoritesCount)"
     }
     
     @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient1.sharedInstance.POST("1.1/statuses/retweet/\(tw.idstr!).json", parameters: nil, success: nil, failure: nil)
+        tw.retweetCount += 1
+        self.retweetsCounts.text = "\(tw.retweetCount)"
     }
     
     @IBAction func onReply(sender: AnyObject) {
