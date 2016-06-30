@@ -80,8 +80,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.tweetLabel.text = tw.text
         cell.favoriteCount.text = "\(tw.favoritesCount)"
         cell.retweetCount.text = "\(tw.retweetCount)"
-        cell.timestampLabel.text = "\(tw.timestamp!)"
+        cell.timestampLabel.text = "\(tw.timeSince!)"
         cell.usernameLabel.text = tw.theUser?.name
+        
         
         cell.profilePic.setImageWithURL((tw.theUser?.profileUrl)!)
         
@@ -103,8 +104,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let indexPath = tableView.indexPathForCell(cell)
             let posts = tweets[indexPath!.row]
             
-            let detailViewController = segue.destinationViewController as! DetailedViewController
-            detailViewController.tw = posts
+            if segue.identifier == "detailedSegue"{
+                let detailViewController = segue.destinationViewController as! DetailedViewController
+                detailViewController.tw = posts
+            }
+            
+            if segue.identifier == "userSegue"{
+                let userViewController = segue.destinationViewController as! UserViewController
+                //userViewController.tw = posts
+            }
         }
     }
     

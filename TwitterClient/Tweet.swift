@@ -16,6 +16,7 @@ class Tweet: NSObject {
     var favoritesCount: Int = 0
     var theUser: User?
     var idstr: Int?
+    var timeSince: String?
     
     init(dictionary: NSDictionary) {
         idstr = dictionary["id"] as? Int
@@ -32,6 +33,8 @@ class Tweet: NSObject {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "E MMM d HH:mm:ss Z y"
             timestamp = formatter.dateFromString(timestampString)
+            timeSince = timestamp?.relativeTime
+            
         }
         
  

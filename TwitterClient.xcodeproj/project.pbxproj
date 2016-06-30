@@ -25,6 +25,7 @@
 		FF346E2B1D2322C400BCA735 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF346E2A1D2322C400BCA735 /* TweetsViewController.swift */; };
 		FF3C516A1D25A537006C6556 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C51691D25A537006C6556 /* PostViewController.swift */; };
 		FF3C516E1D25B97A006C6556 /* dateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C516D1D25B97A006C6556 /* dateFormatter.swift */; };
+		FF3C51721D25C0CB006C6556 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C51711D25C0CB006C6556 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		FF346E2A1D2322C400BCA735 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		FF3C51691D25A537006C6556 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FF3C516D1D25B97A006C6556 /* dateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateFormatter.swift; sourceTree = "<group>"; };
+		FF3C51711D25C0CB006C6556 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				FF346E2A1D2322C400BCA735 /* TweetsViewController.swift */,
 				FF2A53991D2476E400EAA9E0 /* DetailedViewController.swift */,
 				FF3C51691D25A537006C6556 /* PostViewController.swift */,
+				FF3C51711D25C0CB006C6556 /* UserViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				FF3C516E1D25B97A006C6556 /* dateFormatter.swift in Sources */,
 				FF3C516A1D25A537006C6556 /* PostViewController.swift in Sources */,
 				FF2F24B61D21E77B00F25826 /* User.swift in Sources */,
+				FF3C51721D25C0CB006C6556 /* UserViewController.swift in Sources */,
 				FF2A53981D24601A00EAA9E0 /* TweetCell.swift in Sources */,
 				FF2A539A1D2476E400EAA9E0 /* DetailedViewController.swift in Sources */,
 				FF2F24B81D21E7C400F25826 /* Tweet.swift in Sources */,

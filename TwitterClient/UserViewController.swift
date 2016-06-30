@@ -1,5 +1,5 @@
 //
-//  PostViewController.swift
+//  UserViewController.swift
 //  TwitterClient
 //
 //  Created by Baula Xu on 6/30/16.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
-    @IBOutlet weak var captionLabel: UITextField!
-
+class UserViewController: UIViewController {
+    
+    
+    //var tw: Tweet
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,20 +23,6 @@ class PostViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func onCancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-
-    @IBAction func onPost(sender: AnyObject) {
-
-        let dict: NSDictionary = ["status": captionLabel.text!]
-        TwitterClient1.sharedInstance.POST("1.1/statuses/update.json", parameters: dict, success: nil, failure: nil)
-        
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
-    
     
 
     /*
