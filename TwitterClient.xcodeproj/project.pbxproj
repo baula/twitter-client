@@ -26,6 +26,7 @@
 		FF3C516A1D25A537006C6556 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C51691D25A537006C6556 /* PostViewController.swift */; };
 		FF3C516E1D25B97A006C6556 /* dateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C516D1D25B97A006C6556 /* dateFormatter.swift */; };
 		FF3C51721D25C0CB006C6556 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C51711D25C0CB006C6556 /* UserViewController.swift */; };
+		FF3C51741D25EB41006C6556 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C51731D25EB41006C6556 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		FF3C51691D25A537006C6556 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FF3C516D1D25B97A006C6556 /* dateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateFormatter.swift; sourceTree = "<group>"; };
 		FF3C51711D25C0CB006C6556 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		FF3C51731D25EB41006C6556 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FF2A53971D24601A00EAA9E0 /* TweetCell.swift */,
+				FF3C51731D25EB41006C6556 /* UserCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				FF2A539A1D2476E400EAA9E0 /* DetailedViewController.swift in Sources */,
 				FF2F24B81D21E7C400F25826 /* Tweet.swift in Sources */,
 				FF346E291D23115200BCA735 /* TwitterClient1.swift in Sources */,
+				FF3C51741D25EB41006C6556 /* UserCell.swift in Sources */,
 				FF2F24B21D21C31800F25826 /* LoginViewController.swift in Sources */,
 				FF346E2B1D2322C400BCA735 /* TweetsViewController.swift in Sources */,
 				FF2F24841D21C15F00F25826 /* AppDelegate.swift in Sources */,

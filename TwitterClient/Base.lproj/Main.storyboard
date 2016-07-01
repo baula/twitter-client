@@ -365,7 +365,7 @@
                                 <rect key="frame" x="0.0" y="228" width="320" height="340"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="Cha-tF-f5W">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="105" id="Cha-tF-f5W" customClass="UserCell" customModule="TwitterClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cha-tF-f5W" id="Dlf-Cr-b3f">
@@ -381,13 +381,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-Q1-GBf">
-                                                    <rect key="frame" x="109" y="70" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-Q1-GBf">
+                                                    <rect key="frame" x="124" y="74" width="16" height="22"/>
+                                                    <state key="normal" image="favorite"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k15-rc-Gtc">
-                                                    <rect key="frame" x="195" y="71" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k15-rc-Gtc">
+                                                    <rect key="frame" x="210" y="75" width="16" height="22"/>
+                                                    <state key="normal" image="retweet"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tweet text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ib-k7-3z1">
                                                     <rect key="frame" x="109" y="41" width="80" height="21"/>
@@ -415,6 +415,14 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="FavoritesCount" destination="fa1-Lg-OEF" id="j6P-kg-cTl"/>
+                                            <outlet property="RetweetsCount" destination="V0x-PA-0a0" id="swy-ni-TgP"/>
+                                            <outlet property="TweetLabel" destination="8ib-k7-3z1" id="Dpp-ow-A32"/>
+                                            <outlet property="profilePic" destination="PzN-ue-l58" id="Gxa-P2-g3h"/>
+                                            <outlet property="timestampLabel" destination="41b-dX-Ihx" id="sls-H9-UK3"/>
+                                            <outlet property="usernameLabel" destination="qeD-j9-cqu" id="MTb-g6-Bov"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -426,6 +434,7 @@
                         <outlet property="followersCountLabel" destination="hrZ-2P-3X6" id="VUj-6A-NxG"/>
                         <outlet property="followingCountLabel" destination="Ccv-Gj-Bmm" id="ql6-Ad-7x8"/>
                         <outlet property="profilePic" destination="9PT-kB-ifF" id="bbW-oh-qUo"/>
+                        <outlet property="tableView" destination="xnc-i7-qzR" id="UK0-uc-cXw"/>
                         <outlet property="taglineLabel" destination="Aek-7g-GPG" id="AKn-I4-nF1"/>
                         <outlet property="tweetCountLabel" destination="v2p-4R-mSI" id="hoS-tK-lgX"/>
                         <outlet property="usernameLabel" destination="NOA-Cn-vXV" id="z45-t6-eTZ"/>
