@@ -17,6 +17,7 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var favoritesCounts: UILabel!
     @IBOutlet weak var retweetsCounts: UILabel!
+    @IBOutlet weak var screennameLabel: UILabel!
     
     var tw: Tweet!
 
@@ -27,6 +28,7 @@ class DetailedViewController: UIViewController {
         retweetsCounts.text = "\(tw.retweetCount)"
         timestampLabel.text = "\(tw.timestamp!)"
         usernameLabel.text = tw.theUser?.name
+        screennameLabel.text = "@\((tw.theUser?.screenname)!)"
         
         imageLabel.setImageWithURL((tw.theUser?.profileUrl)!)
         // Do any additional setup after loading the view.

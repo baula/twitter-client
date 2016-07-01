@@ -1,43 +1,52 @@
 //
-//  UserViewController.swift
+//  PersonalViewController.swift
 //  TwitterClient
 //
-//  Created by Baula Xu on 6/30/16.
+//  Created by Baula Xu on 7/1/16.
 //  Copyright © 2016 Baula Xu. All rights reserved.
 //
 
 import UIKit
-import BDBOAuth1Manager
 
-class UserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PersonalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var taglineLabel: UILabel!
-    @IBOutlet weak var tweetCountLabel: UILabel!
-    @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var followersCountLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var screennameLabel: UILabel!
+    @IBOutlet weak var taglineLabel: UILabel!
+    @IBOutlet weak var tweetCount: UILabel!
+    @IBOutlet weak var followerLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
-    var tw: Tweet!
+    var user1: User!
     var tweets: [Tweet]! = []
     
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
         super.viewDidLoad()
-        usernameLabel.text = tw.theUser?.name
-        taglineLabel.text = tw.theUser?.tagline
-        profilePic.setImageWithURL((tw.theUser?.profileUrl)!)
-        tweetCountLabel.text = "\((tw.theUser?.tweetCount)!)"
-        screennameLabel.text = "@\((tw.theUser?.screenname)!)"
-        followingCountLabel.text = "\((tw.theUser?.followingCount)!)"
-        followersCountLabel.text = "\((tw.theUser?.followerCount)!)"
-        // Do any additional setup after loading the view.
+        
+        TwitterClient1.sharedInstance.currentAccount({(user: User) -> () in
+            self.user1 = user
+            self.usernameLabel.text = self.user1.name
+            self.taglineLabel.text = self.user1.tagline
+            self.profilePic.setImageWithURL((self.user1.profileUrl)!)
+            self.tweetCount.text = "\((self.user1.tweetCount)!)"
+            self.screennameLabel.text = "@\((self.user1.screenname)!)"
+            self.followingLabel.text = "\((self.user1.followingCount)!)"
+            self.followerLabel.text = "\((self.user1.followerCount)!)"
+            self.refresh()
+            
+            }, failure: { (error: NSError) in
+                print(error.localizedDescription)
+        })
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
-        refresh()
+        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,8 +55,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func refresh(){
-        print((self.tw.theUser?.userID)!)
-        TwitterClient1.sharedInstance.GET("1.1/statuses/user_timeline.json?user_id=\((self.tw.theUser?.userID)!)", parameters: nil , progress: nil, success: { (task: NSURLSessionDataTask, response:AnyObject?) ->Void in
+        TwitterClient1.sharedInstance.GET("1.1/statuses/user_timeline.json?user_id=\((self.user1!.userID)!)", parameters: nil , progress: nil, success: { (task: NSURLSessionDataTask, response:AnyObject?) ->Void in
             let dictionaries = response as! [NSDictionary]
             
             self.tweets = Tweet.tweetsWithArray(dictionaries)
@@ -56,13 +64,10 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) ->Void in
                 
         })
-        
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
         refresh()
-        // Reload the tableView now that there is new data
-        self.tableView.reloadData()
         
         // Tell the refreshControl to stop spinning
         refreshControl.endRefreshing()
@@ -73,24 +78,25 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonalCell", forIndexPath: indexPath) as! PersonalCell
         let row = indexPath.row
         let tw2 = tweets[row]
         
-        cell.TweetLabel.text = tw2.text
-        cell.FavoritesCount.text = "\(tw2.favoritesCount)"
-        cell.RetweetsCount.text = "\(tw2.retweetCount)"
+        cell.tweetLabel.text = tw2.text
+        cell.favoritesCount.text = "\(tw2.favoritesCount)"
+        cell.retweetsCount.text = "\(tw2.retweetCount)"
         cell.timestampLabel.text = "\(tw2.timeSince!)"
         cell.usernameLabel.text = tw2.theUser?.name
         
         
-        cell.profilePic.setImageWithURL((tw2.theUser?.profileUrl)!)
+        cell.profilePics.setImageWithURL((tw2.theUser?.profileUrl)!)
         
         
-        //print("\(tw.text)")
         return cell
         
     }
+    
+
     /*
     // MARK: - Navigation
 
