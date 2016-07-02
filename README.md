@@ -1,6 +1,6 @@
 # Project 4 - Twitter Client
 
-#Twitter is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
+A basic twitter app to read and compose tweets using the [Twitter API](https://apps.twitter.com/).
 
 Time spent: 20 hours spent in total
 
