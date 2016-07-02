@@ -52,7 +52,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+gif of features:
+<img src='http://i.imgur.com/FL8RHfp.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+gif of autolayout:
+<img src='http://i.imgur.com/xzdbRqP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+link if gif is not embedding: http://imgur.com/FL8RHfp (features)
+link if gif is not embedding: http://imgur.com/xzdbRqP (autolayout)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
